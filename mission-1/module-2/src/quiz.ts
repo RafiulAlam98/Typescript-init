@@ -1,6 +1,6 @@
-const  generateAdder = (a: number)  => {
+const  generateAdder = (a: number): (b: number) => number => {
 
-        return (b: number) => {
+        return function(b: number) {
       
           return a + b;
       
