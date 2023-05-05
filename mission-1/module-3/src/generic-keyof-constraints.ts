@@ -8,3 +8,4 @@ type newType = "name" | "age"
 type newKeyOfType = keyof PersonType
 
 const a: newKeyOfType ="age"
+
