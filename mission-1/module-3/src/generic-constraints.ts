@@ -1,22 +1,32 @@
-interface MyInfo{
+interface MyInfo {
         name:string,
         age:number,
-        other:string               
+        salary:number,
+        other1:false,
+        other2:null
+}
+
+interface MandatoryInterface {
+        name:string,
+        age:number,
         salary:number,
 }
-
-const addMeInMyCrushMind1 = <T extends {name:string,age:number,salary:number}>(param:T) =>{
-        const crush = "kate"
-        const newData = {...param, crush}
+const addMe = <T extends MandatoryInterface>(myInfo:T) => {
+        const crush = "Kate"
+        const newData = {...myInfo,crush}
         return newData
 }
-const myInfo1:MyInfo= {
-        name:"t",
-        age:10,
-        salary:1999999,
-        other:"other"
+
+
+
+const myInfo1:MyInfo = {
+        name:"Me",
+        age:35,
+        salary:1000,
+        other1:false,
+        other2:null
+
 }
 
-
-const result51 = addMeInMyCrushMind1(myInfo1)
-console.log(result51)
+const info = addMe<MyInfo> (myInfo1)
+console.log(info)

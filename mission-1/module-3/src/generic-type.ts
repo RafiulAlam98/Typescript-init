@@ -7,7 +7,9 @@ const rollNumer4:Array<string> = ["1","2","3"]
 const rollNumer5:boolean[] = [true, false] 
 const rollNumer6:Array<boolean> = [true, false] 
 
-const userRollNubmer: Array<{name:string, age:number}> =[
+interface value {name:string, age:number}
+
+const userRollNubmer: Array<value> =[
         {
                 name:"Tonmoy",
                 age:24
@@ -28,7 +30,7 @@ const genericObj :GenericObject ={ name:"f" }
 const rollNumer7 :GenericArray<number> = [1,2,3]
 const rollNumer8 :GenericArray<string> =  ["1","2","3"] 
 const rollNumer9 :GenericArray<boolean> = [true, false]
-const rollNumer10 :GenericArray<{name:string, age:number}> = [{
+const rollNumer10 :GenericArray<value> = [{
         name:"Tonmoy",
         age:24
 },
@@ -52,12 +54,12 @@ const rollNumer11 :GenericArray<NameAge> = [{
 //generic uses multiple parameters with tuple
 type GenericTuple <X,Y> = [X,Y] //can't use Array<X,Y>
 
-interface IRelation {
+type Relation = {
         name:string,
         salary:number
 }
 
-const relationWithSalary: GenericTuple <IRelation,string> = [{
+const relationWithSalary: GenericTuple <Relation,string> = [{
 name:"Tonmoy",
 salary:100000
 }, "kate"] 

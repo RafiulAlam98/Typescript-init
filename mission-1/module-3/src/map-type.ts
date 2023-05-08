@@ -7,7 +7,7 @@ type AreaNumber = {
         width:number
 }
 
-type AB = AreaNumber["height"] //number [accessing type property]
+type AB = AreaNumber["height"] //lookup types //number [accessing type property]
 type BC = keyof AreaNumber //"number" | "number"
 
 type AreaReadOnly ={

@@ -35,7 +35,62 @@ const getUser = (user:NormalUserType|AdminUserType):string =>{
 
 const normalUser:NormalUserType = {name:"t"}
 const adminUser:AdminUserType = {name:"t",role:"admin"}
-console.log(getUser(normalUser))
-console.log(getUser(adminUser))
+// console.log(getUser(normalUser))
+// console.log(getUser(adminUser))
 
 //instance of guard
+class Animal {
+         name:string;
+         species:string;
+         
+
+        constructor( name:string,  species:string, ){
+                this.name = name
+                this.species = species
+               
+        }
+        makeSound() {
+                console.log("d")
+        }
+}
+
+class Dog extends Animal{
+        constructor(name:string, species:string){
+                super(name,species)
+        }
+        makeBark(){
+                console.log("sound")
+        }
+}
+class Cat extends Animal{
+        constructor(name:string, species:string){
+                super(name,species)
+        }
+        makeMeaw(){
+                console.log("sound")
+        }
+}
+
+function isDog (animal:Animal):animal is Dog{
+        return animal instanceof Dog
+}
+function isCat (animal:Animal):animal is Cat{
+        return animal instanceof Cat
+}
+
+function getSound (obj:Animal) {
+        if(isDog(obj)){
+                obj.makeBark()
+        }
+        else if(obj instanceof Cat){
+                obj.makeMeaw()
+        }
+        else{
+                obj.makeSound()
+        }
+}
+
+
+const animal1 = new Dog("h","y")
+
+const animal2 = new Cat("h","y")
