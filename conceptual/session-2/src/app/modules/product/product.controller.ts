@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import { sendApiResponse } from "../../utils/responseHandler";
 import { getAllProductFromDB, getProductFromDb } from "./product.service";
 
 export const getAllProduct = async (
@@ -6,7 +7,7 @@ export const getAllProduct = async (
   res: Response
 ): Promise<void> => {
   const products = await getAllProductFromDB();
-  res.send(products);
+  sendApiResponse(res, 200, true, products);
 };
 
 export const getProductById = async (
@@ -14,6 +15,6 @@ export const getProductById = async (
   res: Response
 ): Promise<void> => {
   const { id } = req.params;
-  const products = await getProductFromDb(id);
-  res.send(products);
+  const product = await getProductFromDb(id);
+  sendApiResponse(res, 200, true, product);
 };
